@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
-import { meet } from "@googleworkspace/meet-addons/meet.addons";
+import {
+  meet,
+  MeetAddonClient,
+} from "@googleworkspace/meet-addons/meet.addons";
 import { CLOUD_PROJECT_NUMBER } from "../../constants";
 
 /**
