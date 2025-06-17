@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -22,23 +18,18 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
     "target": "ES2017"
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    "../dist/hello-world-next-js/types/**/*.ts",
-    "../dist/meet-roulette/types/**/*.ts",
+    "./dist/types/**/*.ts",
     ".next/types/**/*.ts",
     "build/types/**/*.ts",
     "next-env.d.ts",
     "/dist/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
