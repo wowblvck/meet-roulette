@@ -23,11 +23,14 @@ type TParticipantsProps = {
   meetId: string;
 };
 
+const sanitizeMeetId = (rawId: string) => rawId.replace(/\//g, "_");
+
 export default function Participants({ meetId }: TParticipantsProps) {
+  const safeMeetId = sanitizeMeetId(meetId);
   const [participants, setParticipants] = useState<Participant[]>([]);
   const [input, setInput] = useState("");
 
-  const ref = collection(db, "participants", meetId, "list");
+  const ref = collection(db, "participants", safeMeetId, "list");
 
   useEffect(() => {
     const q = query(ref, orderBy("createdAt"));
@@ -38,7 +41,7 @@ export default function Participants({ meetId }: TParticipantsProps) {
       })) as Participant[];
       setParticipants(list);
     });
-  }, [meetId]);
+  }, [safeMeetId]);
 
   const addParticipant = async () => {
     if (!input.trim()) return;
