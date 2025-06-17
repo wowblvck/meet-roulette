@@ -7,6 +7,7 @@ import {
 } from "@googleworkspace/meet-addons/meet.addons";
 import { CLOUD_PROJECT_NUMBER, MAIN_STAGE_URL } from "../../constants";
 import Participants from "@/widgets/participants";
+import { sanitizeMeetId } from "@/utils";
 
 export default function Page() {
   const [sidePanelClient, setSidePanelClient] = useState<MeetSidePanelClient>();
@@ -29,7 +30,7 @@ export default function Page() {
       setSidePanelClient(sidePanel);
 
       const meetingInfo = await sidePanel.getMeetingInfo();
-      setMeetId(meetingInfo.meetingId);
+      setMeetId(sanitizeMeetId(meetingInfo.meetingId));
     })();
   }, []);
 
