@@ -27,6 +27,7 @@ const sanitizeMeetId = (rawId: string) => rawId.replace(/\//g, "_");
 
 export default function Participants({ meetId }: TParticipantsProps) {
   const safeMeetId = sanitizeMeetId(meetId);
+  console.log({ meetId, safeMeetId });
   const [participants, setParticipants] = useState<Participant[]>([]);
   const [input, setInput] = useState("");
 
